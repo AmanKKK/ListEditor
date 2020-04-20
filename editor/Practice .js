@@ -36,7 +36,7 @@ const app = new Vue({
         "name": this.newCardName,
         "tarefas" : [],
         "novaTarefa": null,
-        "icon": "fas fa-atlas",
+        "icon": "fas fa-table",
         "delete": true,
         "edit": false
       })

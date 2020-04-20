@@ -1,11 +1,15 @@
 
-body,html{
-   background-color:#72fc22;
+.groups{
+   background-color:#a5b3c9;
    font-family: 'Ubuntu', sans-serif;
  }
+ .check{
+   border:2px solid lime;
+ }
+
  .damn{
    border:2px solid black;
-   width:100%;
+   
    height:234px;
  }
  .damn2{
@@ -18,7 +22,7 @@ body,html{
   
    border: 2px solid yellow;
    width: calc(100% - 0px);
-   height: 90%;
+   height: 100%;
    overflow-x: auto;
    overflow-y: auto;
    padding: 20px;
@@ -33,8 +37,8 @@ body,html{
    align-items: start;
    padding: 0 0.8rem 0.8rem;
    overflow-x: auto;
-   overflow-y: hidden;
-   height: calc(100vh - 2.6rem);
+   overflow-y: auto;
+   height: calc(100vh - 0rem);
    /*  Object */
  }
  
@@ -71,6 +75,7 @@ body,html{
    background: transparent;
    cursor: pointer;
    transition: 0.4s;
+  
  }
  
  button:focus{
@@ -83,7 +88,7 @@ body,html{
      box-sizing: border-box;
  }
  
- body {
+ .groups {
      font-family: Arial, sans-serif;
      display: flex;
      flex-direction: column;
@@ -180,12 +185,12 @@ body,html{
  }
  
  ::-webkit-scrollbar {
-     width: 1.6rem;
+     width: 1rem;
  }
  
  ::-webkit-scrollbar-thumb {
-     background-color: #c4c9cc;
-     border-right: 0.6rem solid #e2e4e6;
+     background-color: #dfe0e0;
+   /*  border-right: 0.6rem solid #020d18;*/  
  }
  
  .moved{
@@ -198,8 +203,9 @@ body,html{
    padding: 20px;
  }
  
- .dash::-webkit-scrollbar {
+ /*.dash::-webkit-scrollbar {
      height: 0.8rem;
+     width:1.6rem;
  }
  
  .dash::-webkit-scrollbar-thumb {
@@ -207,7 +213,7 @@ body,html{
      border: 0.8rem solid rgba(0,0,0,.40);
      border-top-width: 0;
  }
- 
+ */
  
  .card .title{
      word-break: break-all;
@@ -258,7 +264,7 @@ body,html{
  }
  
  .concluido{
-   background: #58b36db5; /*Цвет колонки внутри основной колонки */
+   background: #05832a; /*Цвет колонки внутри основной колонки */
    color: #fff;
  }
  
