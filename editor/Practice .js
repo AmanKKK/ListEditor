@@ -19,16 +19,7 @@ const app = new Vue({
   },
 
   methods:{
-    montar(){
-      this.cards.push({
-        "id": this.cards.length,
-        "name": "тестовая таблица",
-        "tarefas" : [],
-        "novaTarefa": null,
-        "icon": "fas fa-check-square",
-        "delete": false
-      })
-    },
+  
     newCard(){
       if(!this.newCardName == ''){
       this.cards.push({
