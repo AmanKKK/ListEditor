@@ -95,7 +95,8 @@
  }
  
  .quadro_title{
-   position: relative;
+   
+   position: absolute;;
    color: black;
    font-size: 18px;
    padding: 5px;
@@ -145,7 +146,7 @@
        flex: 0 0 27rem;
      display: flex;
      flex-direction: column;
-     background-color: #FC913A; /*цвет колонки */
+     background-color: rgb(247, 155, 80); /*цвет колонки */
      max-height: calc(100vh - 8.8rem);
      border-radius: 0.3rem;
      margin-right: 1rem;
@@ -251,12 +252,12 @@
  }
  
  .concluido{
-   background: #05832a; /*Цвет колонки внутри основной колонки */
-   color: #fff;
+   background: #ffffff; /*Цвет колонки внутри основной колонки */
+   color: rgb(0, 0, 0);
  }
  
  .concluido i{
-   color: #fff;
+   color: rgb(230, 59, 59);
  }
  
  @-webkit-keyframes run {
