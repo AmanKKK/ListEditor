@@ -37,7 +37,7 @@
    font-size: 18px;
  }
  
- #inputList{
+ input{
    font-size: 18px;
    background: transparent;
    padding: 10px;
@@ -45,7 +45,7 @@
    top: 10px;
  }
  
- #inputList{
+ input{
    border: none;  
    outline: none;
    text-align: left;

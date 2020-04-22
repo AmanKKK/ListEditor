@@ -260,7 +260,7 @@ a.arrow{text-decoration: none;}
      v-if="!editQuadroTitle">{{quadro.title}}
       <span v-if="quadro.title == ''">Списки подгрупп</span>
     </p>
-    <input id="inputList" class="title_q"
+    <input  class="title_q"
            @blur="cancelQuadroTitle"
            v-on:keyup.enter="cancelQuadroTitle"
            v-else=""
@@ -295,7 +295,7 @@ a.arrow{text-decoration: none;}
         Без названия;
       </span>
     </p>
-    <input id="inputList" v-if="card.edit" @blur="cancelEditCard(card)"
+    <input  v-if="card.edit" @blur="cancelEditCard(card)"
            v-on:keyup.enter="cancelEditCard(card)"
            class="edit" type="text"
            v-model="card.name"
@@ -332,7 +332,7 @@ a.arrow{text-decoration: none;}
       </div>
     </div>
      
-    <input id="inputList" type="text" v-model="card.novaTarefa"
+    <input  type="text" v-model="card.novaTarefa"
            v-on:keyup.enter="newTarefa(card)"
            placeholder="Введите и/ф студента" maxLength="100">
   </div>
