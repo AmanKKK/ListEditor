@@ -86,7 +86,7 @@
      outline-color: #fa0;
  }
  
- html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset,  label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
      margin: 0;
      padding: 0;
      border: 0;
@@ -177,7 +177,7 @@
  }
  
  ::-webkit-scrollbar-thumb {
-     background-color: #dfe0e0;
+     background-color: #7070708f;
    /*  border-right: 0.6rem solid #020d18;*/  
  }
  
@@ -352,4 +352,18 @@
  #ghost{
     color:#a69f8f;
     opacity:0.7;
+ }
+ .SaveButton{
+   border:2px solid rgb(189, 189, 189);
+   width:120px;
+   margin-left:auto;
+   margin-right:auto;
+   border-radius:6px;
+   background-color:rgb(189, 189, 189) ;
+  
+ }
+ #change{
+   height:30px;
+   
+  
  }

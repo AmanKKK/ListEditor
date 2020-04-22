@@ -79,6 +79,7 @@
     top: 33px;
     text-align: right;
     font-size: 13px;
+    
 }
 
 .text-email{
@@ -140,14 +141,24 @@
     border-radius: 2px;
     margin-top: 1px;
     margin-bottom: 1px;
+  /*  width:94px;
+    height:20px; */
+    margin-right:20px;
+    
 }
 
 .flat-button{
     border: solid 1px #939494;
+    font-size:15px;
     border-radius: 2px;
     background-color: #e8e8e8;
     margin-top: 1px;
     margin-bottom: 1px;
+    width:44px;
+    height:20px;
+    margin-right:20px;
+    display:inline-block;
+    
 }
 
 .flat-button:hover{
@@ -156,6 +167,31 @@
 .flat-button:active{
     box-shadow: 0px 0px 1px #000;
 }
+root { 
+    display: block;
+}
+
+#main{
+    margin: 0px auto;
+    width: 200px;
+}
+
+
+.base-block {clear:both; float:left; padding:10px 10px 10px 10px;}
+.title-lable {clear:both; float:left; font-weight: bold; padding: 0px 0px 5px 0px;}
+.secondary-block {clear:both; float:left; padding: 0px 0px 0px 5px;}
+.field {clear:both; text-align:right; line-height:25px; float:left; padding: 2px 0px 2px 0px}
+.intable-field {clear:both; text-align:right; line-height:25px; float:left;}
+.free-label {float:left; clear:both;}
+.message {clear:both; float:left; font-style: italic !important;}
+
+table.my-table {border-collapse:collapse !important; }
+td.my-td {padding: 5px 5px 5px 0px !important;}
+tr.underlined {border-bottom: 1 solid black !important;}
+
+a.arrow:link{color:black;}
+a.arrow:visited{color:black;}
+a.arrow{text-decoration: none;}
 
 
   </style>
@@ -175,6 +211,7 @@
             </div>
             
         </td> 
+        <!--////////////////////ПРОБЛЕМНЫЙ УЧАСТОК///////////////////////-->
         <td colspan="2" rowspan="2" align="right" class="body-table-td" style="width: 531px; height: 234px; background-image: url(http://vega.fcyb.mirea.ru/images/h-c.png);">
             <table cellpadding=0 cellspacing=0><tr><td valign=top style="width: 531px; height: 164px; background-image: url(http://vega.fcyb.mirea.ru/images/h-r.png);">
             <!-- <div class="image-text-block"> -->
@@ -182,7 +219,7 @@
                 <p align="right" style="margin: 25; font-size: 13px; font-family: Arial Narrow,Trebuchet MS,Arial,Verdana,Tahoma;">
                 Логин&nbsp;<input class="flat-text" type="text" name="login" size=10><br>
                 Пароль&nbsp;<input class="flat-text" type="password" name="password" size=10><br>
-                <input type="submit" class="flat-button" value="Вход">
+                <input type="submit" class="flat-button" value="вход">
                 <input type="hidden" name="action" value="login">
                 </p>
             </form>
@@ -196,6 +233,7 @@
             <tr><td style="width: 531px; height: 70px; background-image: url(http://vega.fcyb.mirea.ru/images/h-r2.png);"><img border=0 src="http://vega.fcyb.mirea.ru/images/h-r2.png">
             </td></tr></table>
         </td>
+        <!--//////////////////////КОНЕЦ ПРОБЛЕМНОГО УЧАТСКА//////////////////-->
         <td rowspan="6" class="body-table-td-border"></td>
     </tr>
     <tr class="body-table-tr">
@@ -304,10 +342,16 @@
     <input type="text" v-model="newCardName"
            v-on:keyup.enter="newCard"
            placeholder="Введите название группы" maxLength="30">
+           <button class="SaveButton">Сохранить 
+            <i class="far fa-save"></i>
+           </button>
   </div>
   <!--           LIST'S END         -->  
   </div>
   </div>
+  <button class="SaveButton" id="change">Сохранить
+    <i class="fab fa-rebel"></i>
+  </button>
 
   <td class="body-table-td" style="max-width: 16px; width: 16px;"></td> 
 </tr>
