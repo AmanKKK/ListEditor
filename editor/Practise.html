@@ -260,7 +260,7 @@ a.arrow{text-decoration: none;}
      v-if="!editQuadroTitle">{{quadro.title}}
       <span v-if="quadro.title == ''">Списки подгрупп</span>
     </p>
-    <input class="title_q"
+    <input id="inputList" class="title_q"
            @blur="cancelQuadroTitle"
            v-on:keyup.enter="cancelQuadroTitle"
            v-else=""
@@ -295,7 +295,7 @@ a.arrow{text-decoration: none;}
         Без названия;
       </span>
     </p>
-    <input v-if="card.edit" @blur="cancelEditCard(card)"
+    <input id="inputList" v-if="card.edit" @blur="cancelEditCard(card)"
            v-on:keyup.enter="cancelEditCard(card)"
            class="edit" type="text"
            v-model="card.name"
@@ -332,26 +332,22 @@ a.arrow{text-decoration: none;}
       </div>
     </div>
      
-    <input type="text" v-model="card.novaTarefa"
+    <input id="inputList" type="text" v-model="card.novaTarefa"
            v-on:keyup.enter="newTarefa(card)"
            placeholder="Введите и/ф студента" maxLength="100">
   </div>
   <!-- отвечает за создание новой карты-->
   <div class="card">
     <h1>Создание группы</h1>
-    <input type="text" v-model="newCardName"
+    <input id="inputList" type="text" v-model="newCardName"
            v-on:keyup.enter="newCard"
            placeholder="Введите название группы" maxLength="30">
-           <button class="SaveButton">Сохранить 
-            <i class="far fa-save"></i>
-           </button>
+           
   </div>
   <!--           LIST'S END         -->  
   </div>
   </div>
-  <button class="SaveButton" id="change">Сохранить
-    <i class="fab fa-rebel"></i>
-  </button>
+  
 
   <td class="body-table-td" style="max-width: 16px; width: 16px;"></td> 
 </tr>
