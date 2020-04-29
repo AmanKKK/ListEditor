@@ -34,7 +34,7 @@
 
 .body-table-td-content{
     width: 1025px;
-    border:2px solid black; /*Удалить*/
+    /*Удалить*/
     min-width: 1025px;
     height: 100%;
     background-color: #ffffff;
@@ -141,8 +141,7 @@
     border-radius: 2px;
     margin-top: 1px;
     margin-bottom: 1px;
-  /*  width:94px;
-    height:20px; */
+  
     margin-right:20px;
     
 }
@@ -154,8 +153,7 @@
     background-color: #e8e8e8;
     margin-top: 1px;
     margin-bottom: 1px;
-    width:44px;
-    height:20px;
+   
     margin-right:20px;
     display:inline-block;
     
@@ -175,7 +173,11 @@ root {
     margin: 0px auto;
     width: 200px;
 }
-
+.savechanges{
+    border:2px solid rgb(170, 169, 169);
+    background-color:gray;
+    border-radius: 8px;
+}
 
 .base-block {clear:both; float:left; padding:10px 10px 10px 10px;}
 .title-lable {clear:both; float:left; font-weight: bold; padding: 0px 0px 5px 0px;}
@@ -215,14 +217,7 @@ a.arrow{text-decoration: none;}
         <td colspan="2" rowspan="2" align="right" class="body-table-td" style="width: 531px; height: 234px; background-image: url(http://vega.fcyb.mirea.ru/images/h-c.png);">
             <table cellpadding=0 cellspacing=0><tr><td valign=top style="width: 531px; height: 164px; background-image: url(http://vega.fcyb.mirea.ru/images/h-r.png);">
             <!-- <div class="image-text-block"> -->
-            <form method="POST" enctype="multipart/form-data" action="/auth/action.php">
-                <p align="right" style="margin: 25; font-size: 13px; font-family: Arial Narrow,Trebuchet MS,Arial,Verdana,Tahoma;">
-                Логин&nbsp;<input class="flat-text" type="text" name="login" size=10><br>
-                Пароль&nbsp;<input class="flat-text" type="password" name="password" size=10><br>
-                <input type="submit" class="flat-button" value="вход">
-                <input type="hidden" name="action" value="login">
-                </p>
-            </form>
+            
 
                 <p align="right" style="font-size: 13px; margin: 0px 25px 0px 0px;  font-family: Arial Narrow,Trebuchet MS,Arial,Verdana,Tahoma;">
                 МИРЭА - <br>
@@ -245,8 +240,10 @@ a.arrow{text-decoration: none;}
                             </td> 
     </tr>
     <tr class="body-table-tr"> 
-        <td colspan="2" class="body-table-td" valign=middle style="height: 7px; background-color: #ffffff;">
-
+        <td colspan="2" class="body-table-td" valign=middle style="height: 7px;height:35px; background-color: #ffffff;">
+            <button class="savechanges">сохранить
+                <i class="fas fa-save"></i>
+            </button>
         </td> 
     </tr>
     <tr class="body-table-tr"> 
