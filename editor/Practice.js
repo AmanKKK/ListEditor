@@ -1,7 +1,4 @@
 "use strict";
-
-
-
 const app = new Vue({
   el: "#app",
   data(){
@@ -199,15 +196,10 @@ const app = new Vue({
       this.controlOnStart = originalEvent.ctrlKey;
     },
     
-      submitForm(){
-      axios.post('data.php',{
-        coursename:this.quadroinfo,
-        
-      }).then(response=>{
-        this.response=JSON.stringify(response,null,2)
-      })
-    }
-
+    check(){
+      alert('echo');
+    },
+    
 
   },
 
@@ -215,7 +207,6 @@ const app = new Vue({
 });
 
 
-  
 
 
 

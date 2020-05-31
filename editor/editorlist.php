@@ -241,9 +241,7 @@ a.arrow{text-decoration: none;}
     <tr class="body-table-tr" > 
         <td colspan="2" class="body-table-td" valign=middle style="height:35px; background-color: #ffffff;"> 
         
-        <button v-on:click="submitForm()"  form="send" type="submit" class="btn" style="margin-left:30px;">сохранить 
-                <i class="fas fa-save"></i>
-            </button>
+        
         
         
            </td> <!-- <td class="body-table-td" style="max-width: 16px; width: 16px;background-color: #c0c0c0;"></td> -->
@@ -255,6 +253,16 @@ a.arrow{text-decoration: none;}
   <!--         LIST'S START           --> 
   <div class="groups">
   <div id="app">
+      <button @click="check"
+              class="btn"
+              style="
+                    margin-left:30px;
+                    margin-bottom:20px;
+                    "
+      >
+        Сохранить
+        <i class="fas fa-save"></i>   
+    </button>
   <div class="dash" v-bind:class="{mini: !minif}">
   <form method ="POST" action="data.php"  onkeydown="return event.key != 'Enter'" id="send" >
     <p class="quadro_title" @click="editQuadroName" 
@@ -279,6 +287,8 @@ a.arrow{text-decoration: none;}
        <!--Отвечает за перемещение элементов из стоблцов-->
        <p>{{card.name}}</p>
        <p>{{card.id}}</p>
+       <!-- <p>{{card.tarefas}}</p> -->
+       <!-- <p>{{cards}}</p> -->
     <div v-if="mover" class="move_p">
       <div @click="movendo(card)"
            class="moover"
@@ -295,6 +305,7 @@ a.arrow{text-decoration: none;}
             @click="deleteCard(card)"
             class="delete topd">
            <i class="fas fa-trash"></i>
+           
     </button>
     <p class="title"
        v-bind:class="{ editando: card.edit }" 
@@ -339,6 +350,7 @@ a.arrow{text-decoration: none;}
       </div>
         </draggable>
        </div>
+       <p>{{cards[0]['tarefas'][0]['name']}}</p>
       </div>
     </div>
     <form  onkeydown="return event.key != 'Enter'" id="send" method="POST" action="data.php">
@@ -364,7 +376,8 @@ a.arrow{text-decoration: none;}
   </div>
   <div v-for="card in cards" style ="border:2px solid black;">
   <p>students info</p>
-    <div v-for="tarefa in card.tarefas">
+    <div v-for="(tarefa,index) in card.tarefas">
+        <p>INDEX:{{index}}<p>
         <p>{{tarefa.name}}</p>
         <p>{{tarefa.id}}</p>
     </div>
@@ -448,11 +461,12 @@ a.arrow{text-decoration: none;}
 </tr>
 </table>
 
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="axios.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.10.2/Sortable.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Vue.Draggable/15.0.0/vuedraggable.min.js"></script>
   <script src="vue.min.js"></script>
   <script src="Practice.js"></script>  
+  
   
 
  </body>
