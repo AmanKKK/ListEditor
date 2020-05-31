@@ -461,7 +461,8 @@ a.arrow{text-decoration: none;}
 </tr>
 </table>
 
-  <script src="axios.min.js"></script>
+  //<script src="axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.10.2/Sortable.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Vue.Draggable/15.0.0/vuedraggable.min.js"></script>
   <script src="vue.min.js"></script>
