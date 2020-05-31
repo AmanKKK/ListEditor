@@ -197,7 +197,8 @@ const app = new Vue({
     },
     
     check(){
-      alert('echo');
+      let print=JSON.stringify(app.$data.cards);
+      alert(print);
     },
     
 
