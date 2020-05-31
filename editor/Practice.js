@@ -198,7 +198,17 @@ const app = new Vue({
     
     check(){
       let print=JSON.stringify(app.$data.cards);
-      alert(print);
+      const options={
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        data: print,
+        url: 'data.php',
+      };
+      axios(options)
+      .then( function(response) {
+        console.log(response.data);
+    })
+    .catch(err => console.log(err));
     },
     
 
