@@ -181,6 +181,20 @@ root {
     background-color:rgb(247, 155, 80);
     border-radius: 8px;
 }
+.airplane{
+  position: absolute;
+  margin-left:952px;
+  margin-top: 1px;
+ 
+}
+.UniName{
+  font-size:13px;
+  font-family:  Arial Narrow,Trebuchet MS,Arial,Verdana,Tahoma;;
+  position: absolute;
+  display: inline-block;
+  margin-top:110px;
+  margin-left:280px;
+}
 
 .base-block {clear:both; float:left; padding:10px 10px 10px 10px;}
 .title-lable {clear:both; float:left; font-weight: bold; padding: 0px 0px 5px 0px;}

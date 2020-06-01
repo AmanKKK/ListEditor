@@ -1,4 +1,5 @@
 "use strict";
+
 const app = new Vue({
   el: "#app",
   data(){
@@ -191,24 +192,20 @@ const app = new Vue({
     },
     pullFunction() {
       return this.controlOnStart ? "clone" : true;
-    },
+    },  
     start({ originalEvent }) {
       this.controlOnStart = originalEvent.ctrlKey;
     },
     
     check(){
       let print=JSON.stringify(app.$data.cards);
-      const options={
-        method: 'POST',
-        headers: { 'content-type': 'application/json' },
-        data: print,
-        url: 'data.php',
-      };
-      axios(options)
-      .then( function(response) {
-        console.log(response.data);
-    })
-    .catch(err => console.log(err));
+      axios.post('data.php',print)
+      .then(response=>{
+        console.log(response);
+      })
+      .catch(error=>{
+        console.log(error);
+      })
     },
     
 
