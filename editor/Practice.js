@@ -198,7 +198,7 @@ const app = new Vue({
     },
     
     check(){
-      let print=JSON.stringify(app.$data.cards);
+      let print=JSON.stringify(app.$data);
       axios.post('data.php',print)
       .then(response=>{
         console.log(response);
