@@ -198,7 +198,7 @@ const app = new Vue({
     },
     
     fetchData(){
-      alert('Данные отправленны');
+     // alert('Данные отправленны');
       let print=JSON.stringify(app.$data);
       fetch('data.php',{
         method:'POST',
@@ -208,8 +208,10 @@ const app = new Vue({
         },
         body:print,
       })
-      .then(response=>response.json())
-      .then(result=>alert(JSON.stringify(result)))
+      .then(response=>console.log(response));
+      if(response.status==200){
+        alert('Данные отправлены');
+      }
     },
     
 
