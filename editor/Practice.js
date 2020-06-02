@@ -201,7 +201,7 @@ const app = new Vue({
       let print=JSON.stringify(app.$data);
       
       axios.post('data.php',{
-        object:print,
+        object51:print,
       })
       .then(response=>{
         console.log(response);
@@ -209,6 +209,7 @@ const app = new Vue({
       .catch(error=>{
         console.log(error);
       })
+      
     },
     
 
