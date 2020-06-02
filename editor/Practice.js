@@ -198,22 +198,17 @@ const app = new Vue({
     },
     
     check(){
-      let DataStudent=app.toFormData(app.$data);
+      let print=JSON.stringify(app.$data);
       
-      axios.post('data.php',DataStudent)
+      axios.post('data.php',{
+        object:print,
+      })
       .then(response=>{
         console.log(response);
       })
       .catch(error=>{
         console.log(error);
       })
-    },
-    toFormData(obj){
-      let formData=new FormData();
-      for(let key in obj){
-        formData.append(key,obj[key]);
-      }
-      return formData;
     },
     
 
