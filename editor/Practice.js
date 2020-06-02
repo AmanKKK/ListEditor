@@ -198,20 +198,18 @@ const app = new Vue({
     },
     
     fetchData(){
+      alert('Данные отправленны');
       let print=JSON.stringify(app.$data);
       fetch('data.php',{
         method:'POST',
         headers:{
-          'Content-Type':'application/json'
-
+          'Content-Type':'application/json',
+          'Accept':'application/json',
         },
         body:print,
       })
       .then(response=>response.json())
       .then(result=>alert(JSON.stringify(result)))
-      
-     
-      
     },
     
 
