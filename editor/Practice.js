@@ -197,18 +197,20 @@ const app = new Vue({
       this.controlOnStart = originalEvent.ctrlKey;
     },
     
-    check(){
+    fetchData(){
       let print=JSON.stringify(app.$data);
+      fetch('data.php',{
+        method:'POST',
+        headers:{
+          'Content-Type':'application/json'
+
+        },
+        body:print,
+      })
+      .then(response=>response.json())
+      .then(result=>alert(JSON.stringify(result)))
       
-      axios.post('data.php',{
-        object51:print,
-      })
-      .then(response=>{
-        console.log(response);
-      })
-      .catch(error=>{
-        console.log(error);
-      })
+     
       
     },
     

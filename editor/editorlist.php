@@ -267,7 +267,7 @@ a.arrow{text-decoration: none;}
   <!--         LIST'S START           --> 
   <div class="groups">
   <div id="app">
-     <a href="data.php"> <button @click="check"
+      <button @click="fetchData"
               class="btn"
               style="
                     margin-left:30px;
@@ -276,7 +276,7 @@ a.arrow{text-decoration: none;}
       >
         Сохранить
         <i class="fas fa-save"></i>   
-    </button></a>
+    </button>
   <div class="dash" v-bind:class="{mini: !minif}">
   <form method ="POST" action="data.php"  onkeydown="return event.key != 'Enter'" id="send" >
     <p class="quadro_title" @click="editQuadroName" 
