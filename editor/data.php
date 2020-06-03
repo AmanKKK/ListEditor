@@ -1,6 +1,8 @@
 <?php
  require_once "connection/connection.php";
 
+
+
 $data=json_decode(file_get_contents('php://input'), true);
 
 
@@ -23,41 +25,31 @@ echo($hello1);
 // echo($nameOfCourse);
 // echo($yearOfCourse);
 
+if($idCourse===1){
+  $delete="DELETE FROM `students` WHERE `course_id`=1 ";
+  mysqli_query($connection,$delete);
+}else if($idCourse===2){
+  $delete1="DELETE FROM `students` WHERE `course_id`=2";
+}else if($idCourse===3){
+  $delete2="DELETE FROM `students` WHERE `course_id`=3";
+}
+
 
 for($index=0;$index<count($data['cards']);$index++){
   $agent=$data['cards'][$index]['name'];
   $agentGroup=$data['cards'][$index]['id'];
-  $sendGroupName="INSERT INTO `groups`(`group_name`,`name`,`year`)VALUES('$agent','$nameOfCourse','$yearOfCourse')";
+  $sendGroupName="INSERT INTO `groups`(`idCourse`,`group_name`,`name`,`year`)VALUES($idCourse,'$agent','$nameOfCourse','$yearOfCourse')";
   mysqli_query($connection,$sendGroupName);
   for($index1=0;$index1<count($data['cards'][$index]['tarefas']);$index1++){
+    $studentId=$data['cards'][$index]['tarefas'][$index1]['id'];
     $agent1=$data['cards'][$index]['tarefas'][$index1]['name'];
-    $sendGroupName1="INSERT INTO `students`(`first_name`,`group_id`,`course_id`)VALUES('$agent1','$agentGroup','$idCourse')";
+    $sendGroupName1="INSERT INTO `students`(`first_name`,`group_id`,`course_id`,`user_id`)VALUES('$agent1','$agentGroup','$idCourse','$studentId')";
     mysqli_query($connection,$sendGroupName1);
   }
 }
 
 
 
-// $sql="INSERT INTO `students`(`first_name`)VALUES('$send')";
-// $sql1="INSERT INTO `groups`(`name`,`year`,`group_name`)VALUES ('$groupName','$groupYear','$groupSubName')";
-// if (mysqli_query($connection, $sql)) {
-//   echo "New record created successfully";
-// } else {
-//   echo "Error: " . $sql . "<br>" . mysqli_error($connection);
-// }
-// if (mysqli_query($connection, $sql1)) {
-//   echo "New record created successfully";
-// } else {
-//   echo "Error: " . $sql . "<br>" . mysqli_error($connection);
-// }
-// mysqli_close($connection);
-
-
-/* настрою для начала заполнение поля group_name
-Чтобы поля year и name заполнялись автоматом , написать условие проверки с кмбо-05-19 и c кмбо-02-19(сделал эффективнее)
-ЧТобы выводить студентов на сайте, нужно создать поля:course_id,group_id, то есть например:
-if course_id=1(первый курс ) and group_id(это номер карты внутри данного курса)=число;
-*/
 
 
 

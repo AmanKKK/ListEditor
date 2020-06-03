@@ -3,7 +3,7 @@
 ?>
 <!DOCTYPE HTML>
 <html>
-<!--стадия интеграции-->
+<!--стадия интеграции STTABLE-->
  <head>
   <meta charset="utf-8"> 
   <link rel="stylesheet" href="Practice.css">

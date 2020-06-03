@@ -208,10 +208,7 @@ const app = new Vue({
         },
         body:print,
       })
-      .then(response=>console.log(response));
-      if(response.status==200){
-        alert('Данные отправлены');
-      }
+      .then(response=>console.log(response));  
     },
     
 
