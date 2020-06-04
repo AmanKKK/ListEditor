@@ -66,6 +66,7 @@ for($index=0;$index<count($data['cards']);$index++){
 
 
 
+
 // расписать if для getgroupid, создать переменную(есть), которая будет хранить в себе год.
 // $studentId=$data['cards'][$index]['tarefas'][$index1]['id'];
 /*

@@ -16,7 +16,8 @@ const app = new Vue({
     idTarefa: 0,
     minif: false,
     editQuadroTitle: false,
-    response:'',
+    setStudents:'',
+    setGroups:'',
     }
   },
   mounted(){
