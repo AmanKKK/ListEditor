@@ -292,15 +292,15 @@ a.arrow{text-decoration: none;}
            type="text"
            name="course">
            </form>
-           <div v-for="info in quadroinfo">
-               <p>{{info.name}}</p> <!--В КОНЦЕ РАЗОБРАТЬСЯ -->
+           <!-- <div v-for="info in quadroinfo">
+               <p>{{info.name}}</p> 
                <p>{{info.year}}</p>
-           </div>
+           </div> -->
     <div class="card" 
        v-for="card in cards">
        <!--Отвечает за перемещение элементов из стоблцов-->
-       <p>{{card.name}}</p>
-       <p>{{card.id}}</p>
+       <!-- <p>{{card.name}}</p>
+       <p>{{card.id}}</p> -->
        <!-- <p>{{card.tarefas}}</p> -->
        <!-- <p>{{cards}}</p> -->
     <div v-if="mover" class="move_p">
@@ -364,7 +364,7 @@ a.arrow{text-decoration: none;}
       </div>
         </draggable>
        </div>
-       <p>{{cards[0]['tarefas'][0]['name']}}</p>
+       <!-- <p>{{cards[0]['tarefas'][0]['name']}}</p> -->
       </div>
     </div>
     <form  onkeydown="return event.key != 'Enter'" id="send" method="POST" action="data.php">
@@ -388,19 +388,16 @@ a.arrow{text-decoration: none;}
          
     </form>
   </div>
-  <div v-for="card in cards" style ="border:2px solid black;">
+  <!-- <div v-for="card in cards" style ="border:2px solid black;">
   <p>students info</p>
     <div v-for="(tarefa,index) in card.tarefas">
         <p>INDEX:{{index}}<p>
         <p>{{tarefa.name}}</p>
         <p>{{tarefa.id}}</p>
     </div>
- <!-- <div v-for="card in cards" style ="border:2px solid green;">
-            <p>{{group.name}}</p>
-            <p>{{group.id}}</p>
-</div> -->
+ 
 
-  </div>
+  </div> -->
   <!--           LIST'S END         -->  
   </div>
   </div>

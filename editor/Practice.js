@@ -35,7 +35,7 @@ const app = new Vue({
         "novaTarefa": null,
         "icon": "fas fa-clipboard-list",
         "delete": true,
-        "edit": false
+        "edit": false 
       })
       this.newCardName = ""
       }
