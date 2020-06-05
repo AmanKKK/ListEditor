@@ -271,7 +271,7 @@ a.arrow{text-decoration: none;}
         {{data}}
 
     </div>
-
+    
 
       <button @click="fetchData"
               class="btn"

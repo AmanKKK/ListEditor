@@ -16,10 +16,8 @@ const app = new Vue({
     idTarefa: 0,
     minif: false,
     editQuadroTitle: false,
-    GetData:{
-      SetNames:'',
-      SetGroups:'',
-    },
+    GetData:[],
+    print:'',
     }
   },
   mounted(){
@@ -27,9 +25,20 @@ const app = new Vue({
     axios
     .get('data1.php')
     .then(response=>(
-      this.GetData.SetNames=response.data
+      this.GetData=response.data
     ))
-    .then(alert("Data cached"));
+    .then(alert("Data is cached!"));
+    // if(this.GetData['GroupQTY']!=0){
+    //   for(let i=0;i<this.GetData['GroupQTY'];i++){
+    //     this.cards,push({
+    //       "id":this.GetData['StudentName'][i],
+    //       "name":this.GetData["GroupName"][i],
+    //       "tarefas":[],
+    //       "navaTafera":null,
+    //       "icon":
+    //     })
+    //   }
+    // }
   },
 
   methods:{
