@@ -1,0 +1,371 @@
+
+.groups{
+   background-color:#a5b3c9;
+   font-family: 'Ubuntu', sans-serif;
+ }
+
+ 
+ .dash{
+  
+   
+   width: calc(100% - 0px);
+   height: 100%;
+   overflow-x: auto;
+   overflow-y: auto;
+   padding: 20px;
+   top: 30px;
+   transition: 0.4s all;
+   white-space: nowrap;
+   display: grid;
+   grid-auto-columns: 27rem;
+   grid-auto-flow: column;
+   grid-column-gap: 1rem;
+   display: flex;
+   align-items: start;
+   padding: 0 0.8rem 0.8rem;
+   overflow-x: auto;
+   overflow-y: auto;
+   height: calc(100vh - 0rem);
+   /*  Object */
+ }
+ 
+ h1{
+   font-size: 22px;
+ }
+ 
+ p{
+   font-size: 18px;
+ }
+ 
+ input{
+   font-size: 18px;
+   background: transparent;
+   padding: 10px;
+   position: relative;
+   top: 10px;
+ }
+ 
+ input{
+   border: none;  
+   outline: none;
+   text-align: left;
+   margin-top: 1vw;
+   position: relative;
+   top: -10px;
+   width: calc(100% - 15px);
+   left: 10px;
+
+ }
+ 
+ button{
+   border: none;
+   outline: none !important;
+   background: transparent;
+   cursor: pointer;
+   transition: 0.4s;
+  
+ }
+ 
+ button:focus{
+   transform: scale(1.07);
+ }
+ 
+ *,
+ *::before,
+ *::after {
+     box-sizing: border-box;
+ }
+ 
+ .groups {
+     font-family: Arial, sans-serif;
+     display: flex;
+     flex-direction: column;
+     background-color: #fff;
+ }
+ 
+ :focus {
+     outline-color: #fa0;
+ }
+ 
+ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+     margin: 0;
+     padding: 0;
+     border: 0;
+     font-size: 100%;
+     vertical-align: baseline;
+ }
+ 
+ .quadro_title{
+   
+   position: absolute;;
+   color: black;
+   font-size: 18px;
+   padding: 5px;
+   margin-top: 0px;
+   -moz-user-select: none;
+   -moz-user-select: text;
+  
+   -webkit-user-select: none;
+   
+   cursor: pointer;
+ }
+ 
+ .quadro_title:hover{
+   background: rgba(0,0,0,.40);
+ }
+ 
+ *, *::before, *::after {
+     box-sizing: border-box;
+ }
+ 
+ .card .edit{
+     height: 20px;
+     top: 17px;
+     display: flex;
+     margin: 0px;
+     position: absolute;
+     width: 190px;           /* Object 3 */
+     
+ }
+ 
+ .card{
+   position: relative;
+   width: auto;
+   height: auto;
+   background: #fff;
+   top: 80px;
+   user-select: none;
+   -webkit-animation: linear alternate;
+   -webkit-animation-name: run;
+   -webkit-animation-duration: 0.45s;
+    border-radius: 3px;
+    max-width: 260px;
+    background-color: #e2e4e6;
+    max-height: 200px;
+    border-radius: 0.3rem;
+    margin-right: 1rem;
+       flex: 0 0 27rem;
+     display: flex;
+     flex-direction: column;
+     background-color: rgb(247, 155, 80); /*цвет колонки */
+     max-height: calc(100vh - 8.8rem);
+     border-radius: 0.3rem;
+     margin-right: 1rem;
+    overflow: hidden;
+ }
+ 
+ .card .title{
+   padding: 20px;
+   cursor: pointer;
+ }
+ 
+ .editando{
+   opacity: 0;
+   z-index: -1;
+ }
+ 
+ .list{
+   overflow-y: auto;
+   overflow-x: hidden;
+   max-height: calc(100vh - 8.8rem);
+   padding: 10px;
+   width: 100%;
+   margin: 10px; /*Object*/
+ }
+ 
+ ::-webkit-scrollbar {
+     width: 1rem;
+ }
+ 
+ ::-webkit-scrollbar-thumb {
+     background-color: #7070708f;
+   /*  border-right: 0.6rem solid #020d18;*/  
+ }
+ 
+ .moved{
+   -webkit-animation: linear alternate;
+   -webkit-animation-name: run;
+   -webkit-animation-duration: 0.45s;
+ }
+ 
+ .card h1{
+   padding: 20px;
+ }
+ 
+ /*.dash::-webkit-scrollbar {
+     height: 0.8rem;
+     width:1.6rem;
+ }
+ 
+ .dash::-webkit-scrollbar-thumb {
+     background-color: rgba(0,0,0,.40);
+     border: 0.8rem solid rgba(0,0,0,.40);
+     border-top-width: 0;
+ }
+ */
+ 
+ .card .title{
+     word-break: break-all;
+     white-space: normal;
+     width: 190px;
+ }
+ 
+ .tarefa{
+    background: #fff;
+    border-bottom: 0.1rem solid #ccc;
+     border-radius: 0.3rem;
+    transition: 0.4s;
+    max-width: 260px;
+    height:88px;/*Отвечает за размер блока с именем и фамилием студнента*/
+    margin-top: 9px;
+    position: relative;
+    top: -20px;
+    padding-bottom: 50px;
+    cursor: pointer;
+   -webkit-animation: linear alternate;
+   -webkit-animation-name: opacity;
+   -webkit-animation-duration: 0.45s;
+   left: -10px;
+ }
+ 
+ .tarefa p{
+   padding: 10px;
+   line-break: unset;
+   white-space: pre-wrap;
+   user-select: none;
+   margin: 10px;
+   -moz-user-select: none;
+   -moz-user-select: text;
+ 
+   -webkit-user-select: none;
+    word-break: break-all;
+    width: 190px;
+ }
+ 
+ .right{
+   display: flex;
+ }
+ 
+ .delete{
+   position: absolute;
+   margin: -29% 72% 1%;
+   color: #ca4848;
+ }
+ 
+ .concluido{
+   background: #ffffff; /*Цвет колонки внутри основной колонки */
+   color: rgb(0, 0, 0);
+ }
+ 
+ .concluido i{
+   color: rgb(230, 59, 59);
+ }
+ 
+ @-webkit-keyframes run {
+     0% { transform: translateY(-5%);}
+     50%{ transform: translateY(5%);}
+     100%{ transform: translateY(0%);}
+ }
+ 
+ .move{
+   position: absolute;
+   margin: 1vw 0px;
+   
+ }
+ 
+ .moover{
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   background: rgba(0,0,0,.85);
+   top: 0px;
+   left: 0px;
+   padding: 0vw;
+   cursor: pointer;
+   z-index: 100;
+   -webkit-animation: linear alternate;
+   -webkit-animation-name: opacity;
+   -webkit-animation-duration: 0.3s;
+ }
+ 
+ .move_p p{
+   color: #fff;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   position: absolute;
+ }
+ 
+ @-webkit-keyframes opacity {
+     0% { opacity: 0;}
+     50%{ opacity: 0.5;}
+     100%{ opacity: 1;}
+ }
+ 
+ 
+ 
+ 
+ .topd{
+   margin: -2% 81% 1%;
+ }
+ 
+ .topd {
+     position: absolute;
+     margin: 0px 77% 0% !important;
+     color: #ca4848;
+     font-size: 18px;
+ }
+ 
+ .delete {
+     position: absolute;
+     margin: -32px 83% 0%;
+     color: #ca4848;
+     font-size: 18px;
+ }
+ 
+ .move {
+     position: absolute;
+     margin: 0px 84%;
+     font-size: 18px;
+ }
+ 
+ .right {
+     display: flex;
+     margin-left: 12px;
+ }
+ 
+ .topd {
+     position: absolute;
+     margin: 15px 80% 0% !important;
+     color: #ca4848;
+     font-size: 18px;
+ }
+ 
+ .title_q{
+   position: fixed;
+   color: #fff;
+   padding: 5px;
+   margin: 10px 3px;
+   top: 20px;
+   background: rgba(0,0,0,.40);
+   width: auto;
+ }
+ #ghost{
+    color:#a69f8f;
+    opacity:0.7;
+ }
+ /* .airplane{
+  position: absolute;
+  margin-left:952px;
+  margin-top: 1px;
+ 
+}
+.UniName{
+  font-size:13px;
+  font-family:  Arial Narrow,Trebuchet MS,Arial,Verdana,Tahoma;;
+  position: absolute;
+  display: inline-block;
+  margin-top:110px;
+  margin-left:280px;
+} */
+ 
