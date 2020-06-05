@@ -26,15 +26,13 @@ while($GroupsData=mysqli_fetch_assoc($requestToGetGroups)){
       array_push($fetchGroups['GroupName'],$GroupsName);
 }
 
-echo '<br>';
-print_r($fetchStudents);
-echo '<br>';
-print_r($fetchGroups);
+
 
 $mergedData=$fetchStudents+$fetchGroups;
 
-echo '<br>';
-print_r($mergedData);
+$JSONdata=json_encode($mergedData);
+
+print_r($JSONdata);
 
 
 

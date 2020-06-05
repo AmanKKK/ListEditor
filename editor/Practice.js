@@ -16,12 +16,20 @@ const app = new Vue({
     idTarefa: 0,
     minif: false,
     editQuadroTitle: false,
-    setStudents:'',
-    setGroups:'',
+    GetData:{
+      SetNames:'',
+      SetGroups:'',
+    },
     }
   },
   mounted(){
-    this.montar()
+    // this.montar()
+    axios
+    .get('data1.php')
+    .then(response=>(
+      this.GetData.SetNames=response.data
+    ))
+    .then(alert("Data cached"));
   },
 
   methods:{

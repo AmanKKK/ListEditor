@@ -267,6 +267,12 @@ a.arrow{text-decoration: none;}
   <!--         LIST'S START           --> 
   <div class="groups">
   <div id="app">
+    <div v-for="data in GetData">
+        {{data}}
+
+    </div>
+
+
       <button @click="fetchData"
               class="btn"
               style="
