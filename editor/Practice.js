@@ -17,7 +17,8 @@ const app = new Vue({
     minif: false,
     editQuadroTitle: false,
     GetData:[],
-    // i:-1,
+    foriteration:0,
+    forinneriteration:0,
     }
   },
   mounted(){
@@ -25,23 +26,22 @@ const app = new Vue({
     axios
     .get('data1.php')
     .then(response=>(
-      this.GetData=response.data
+      this.GetData=response.data,
+      this.DOIT()
+      
     ))
     .then(alert("Data is cached!"));
+    
    
   },
-  created(){
-    if(this.GetData['GroupQTY']!=0){
-      alert("hish");
-      this.DOIT();
-    }
-    
-  },
+  
+
 
   methods:{
     
     DOIT(){
       for(let i=0; i<this.GetData['groupQTY'];i++){
+       this.foriteration++;
       this.cards.push({
         "id":this.cards.length,
         "name":this.GetData["GroupName"][i],
@@ -51,18 +51,27 @@ const app = new Vue({
         "delete": true,
         "edit": false 
       })
-      // for(let i1=0;i<this.GetData['studentQTY'];i1++){
-      //   this.cards[i].tarefas.push({
-      //     "id":this.cards[id].tarefas.length,
-      //     "name":this.GetData['StudentName'][i1],
-      //     "moved":false,
-      //   })
-      // }
+      for(let i1=0;i1<this.GetData['studentQTY'];i1++){
+        forinneriteration++;
+        let finalizadoT=false
+        if(this.cards.id===0){
+          finalizadoT=true;
+        }
+        this.cards[i].tarefas.push({
+          "id":this.cards[i].tarefas.length,
+          "name":this.GetData['StudentName'][i1],
+          "finalizadoT":finalizadoT,
+          "moved":false
+          
+        })
       }
+      }
+
     },
-  
-  
+   
     newCard(){
+      alert(this.foriteration);
+      alert(this.forinneriteration);
       if(!this.newCardName == ''){
       this.cards.push({
         "id": this.cards.length,

@@ -267,8 +267,7 @@ a.arrow{text-decoration: none;}
   <!--         LIST'S START           --> 
   <div class="groups">
   <div id="app">
-
-      <button @click="fetchData"
+    <button @click="fetchData"
               class="btn"
               style="
                     margin-left:30px;
@@ -278,9 +277,7 @@ a.arrow{text-decoration: none;}
         Сохранить
         <i class="fas fa-save"></i>   
     </button>
-    <button @click="DOIT" class="btn">
-    TEST
-    </button>
+    
     
     
   <div class="dash" v-bind:class="{mini: !minif}">
@@ -406,6 +403,7 @@ a.arrow{text-decoration: none;}
 
   </div> -->
   <!--           LIST'S END         -->  
+ 
   </div>
   </div>
 
