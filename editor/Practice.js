@@ -17,7 +17,7 @@ const app = new Vue({
     minif: false,
     editQuadroTitle: false,
     GetData:[],
-    print:'',
+    // i:-1,
     }
   },
   mounted(){
@@ -28,21 +28,39 @@ const app = new Vue({
       this.GetData=response.data
     ))
     .then(alert("Data is cached!"));
-    // if(this.GetData['GroupQTY']!=0){
-    //   for(let i=0;i<this.GetData['GroupQTY'];i++){
-    //     this.cards,push({
-    //       "id":this.GetData['StudentName'][i],
-    //       "name":this.GetData["GroupName"][i],
-    //       "tarefas":[],
-    //       "navaTafera":null,
-    //       "icon":
-    //     })
-    //   }
-    // }
+   
+  },
+  created(){
+    if(this.GetData['GroupQTY']!=0){
+      alert("hish");
+      this.DOIT();
+    }
+    
   },
 
   methods:{
-   
+    
+    DOIT(){
+      for(let i=0; i<this.GetData['groupQTY'];i++){
+      this.cards.push({
+        "id":this.cards.length,
+        "name":this.GetData["GroupName"][i],
+        "tarefas":[],
+        "navaTafera":null,
+        "icon": "fas fa-clipboard-list",
+        "delete": true,
+        "edit": false 
+      })
+      // for(let i1=0;i<this.GetData['studentQTY'];i1++){
+      //   this.cards[i].tarefas.push({
+      //     "id":this.cards[id].tarefas.length,
+      //     "name":this.GetData['StudentName'][i1],
+      //     "moved":false,
+      //   })
+      // }
+      }
+    },
+  
   
     newCard(){
       if(!this.newCardName == ''){

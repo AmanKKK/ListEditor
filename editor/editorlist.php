@@ -267,11 +267,6 @@ a.arrow{text-decoration: none;}
   <!--         LIST'S START           --> 
   <div class="groups">
   <div id="app">
-    <div v-for="data in GetData">
-        {{data}}
-
-    </div>
-    
 
       <button @click="fetchData"
               class="btn"
@@ -283,6 +278,11 @@ a.arrow{text-decoration: none;}
         Сохранить
         <i class="fas fa-save"></i>   
     </button>
+    <button @click="DOIT" class="btn">
+    TEST
+    </button>
+    
+    
   <div class="dash" v-bind:class="{mini: !minif}">
   <form method ="POST" action="data.php"  onkeydown="return event.key != 'Enter'" id="send" >
     <p class="quadro_title" @click="editQuadroName" 
@@ -394,6 +394,7 @@ a.arrow{text-decoration: none;}
          
     </form>
   </div>
+  
   <!-- <div v-for="card in cards" style ="border:2px solid black;">
   <p>students info</p>
     <div v-for="(tarefa,index) in card.tarefas">
