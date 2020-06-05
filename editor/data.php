@@ -30,37 +30,22 @@ echo($hello1);
 $IDofGroup=0;
 
 for($index=0;$index<count($data['cards']);$index++){
-  $bolean=true;
+
   $groupname=$data['cards'][$index]['name']; //название группы;
   $sendtogroup="INSERT INTO `groups`(`name`,`year`)VALUES('$groupname','$yearOfCourse')";
   mysqli_query($connection,$sendtogroup);
-}
-  if($yearOfCourse===$checkyearOfCourse){
-    $getgroupid2019="SELECT `id` FROM `groups` WHERE `year`=$checkyearOfCourse ";
-    $storage2019=mysqli_query($connection,$getgroupid2019);
-    while($assoccStorage2019=mysqli_fetch_assoc($storage2019)){
-    $groupID2019=$assoccStorage2019['id'];
-    $check=true;
-    $index++;
-  for($index=0;$index<count($data['cards']);$index++){
-    if($check){
   for($index1=0;$index1<count($data['cards'][$index]['tarefas']);$index1++){
     $studentnames=$data['cards'][$index]['tarefas'][$index1]['name'];
     $sendstudents="INSERT INTO `students`(`first_name`)VALUES('$studentnames')";
     mysqli_query($connection,$sendstudents);
-    $getStudentID="SELECT `id` FROM `students`";
-    $studentrequest=mysqli_query($connection,$getStudentID);
-    $studentstorage=mysqli_fetch_assoc($studentrequest);
-    $sendIDstudent=$studentstorage['id'];
-    $sendAllID="INSERT INTO `students_to_group`(`group_id`,`student_id`)VALUES('$groupID2019','$sendIDstudent')";
-    mysqli_query($connection,$sendAllID);
-  }
-  $check=false;
+}
 }
 
-}
-    }
-  }
+$getGroupsID
+
+  // if($yearOfCourse===$checkyearOfCourse){}
+   
+ 
 
 
 
