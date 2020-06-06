@@ -19,36 +19,52 @@
  $getStudents_to_GroupINFO="SELECT `student_id`,`group_id`FROM `students_to_group`";
  $student_to_group=mysqli_query($connection,$getStudents_to_GroupINFO);
  $GroupIDcheck=0;
+ $count1=0;
+ $count2=0;
+ $count3=0;
+ 
+ 
+ 
 
  for($index=0;$index<mysqli_num_rows($group);$index++){
-   $count1++;
-   $catchGroup=mysqli_fetch_assoc($group);
-   $GroupIDcheck=$catchGroup['id'];
-   for($index1=0;$index1<mysqli_num_rows($student_to_group);$index1++){
-      $count2++;
-      $catchStudent_to_group=mysqli_fetch_assoc($student_to_group);
-      $StudentIDcheck[$index1]=$catchStudent_to_group['group_id'];
-      $catchStudent=mysqli_fetch_assoc($students);
-     if($GroupIDcheck===$StudentIDcheck[$index1]){
-      echo '<br>'. "Group ID:". $GroupIDcheck;
-      echo '<br>'. "Student ID:".$StudentIDcheck[$index1];
-        $count3++;
-        
-        $student_name['StudentName'][$index1]=$catchStudent['first_name'];
-     }
-  }
-
-$agentArray['name']=$catchGroup['name'];
-$BigBrotherArray=array_merge($agentArray,$student_name);
-$SendingData[$index]=$BigBrotherArray;
-array_splice($BigBrotherArray,0);
-array_splice($student_name,0);
-}
-
-$flow=json_encode($SendingData,JSON_UNESCAPED_UNICODE);
-
-print_r($flow);
-
+    $count1++;
+    $catchGroup=mysqli_fetch_assoc($group);
+    $GroupIDcheck=$catchGroup['id'];
+    for($index1=0;$index1<mysqli_num_rows($student_to_group);$index1++){
+       $count2++;
+       $catchStudent_to_group=mysqli_fetch_assoc($student_to_group);
+       $StudentIDcheck[$index1]=$catchStudent_to_group['group_id'];
+       $catchStudent=mysqli_fetch_assoc($students);
+      if($GroupIDcheck===$StudentIDcheck[$index1]){
+         $count3++;
+         $student_name['StudentName'][$index1]=$catchStudent['first_name'];
+      }
+   }
+ 
+ $agentArray['name']=$catchGroup['name'];
+ $BigBrotherArray=array_merge($agentArray,$student_name);
+ $SendingData[$index]=$BigBrotherArray;
+ array_splice($BigBrotherArray,0);
+ array_splice($student_name,0);
+ }
+ 
+ 
+ 
+ $amountofgroups=array(
+    "groupQTY"=>array()
+ );
+ $amountofstudents=array(
+    "studentQTY"=>array()
+ );
+ 
+ array_push($amountofgroups['groupQTY'],$count1);
+ array_push($amountofstudents['studentQTY'],$count3);
+ 
+ $SENDdata=$SendingData+$amountofgroups+$amountofstudents;
+ 
+ $flow=json_encode($SENDdata,JSON_UNESCAPED_UNICODE);
+ 
+ print_r($flow);
 
 
 

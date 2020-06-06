@@ -40,31 +40,32 @@ const app = new Vue({
   methods:{
     
     DOIT(){
-      for(let i=0; i<this.GetData['name'];i++){
+      alert("Let's work!");
+      for(let i=0; i<this.GetData['groupQTY'];i++){
        this.foriteration++;
       this.cards.push({
         "id":this.cards.length,
-        "name":this.GetData["GroupName"][i],
+        "name":this.GetData[i]['name'],
         "tarefas":[],
         "navaTafera":null,
         "icon": "fas fa-clipboard-list",
         "delete": true,
         "edit": false 
       })
-      // for(let i1=0;i1<this.GetData['studentQTY'];i1++){
-      //   forinneriteration++;
-      //   let finalizadoT=false
-      //   if(this.cards.id===0){
-      //     finalizadoT=true;
-      //   }
-      //   this.cards[i].tarefas.push({
-      //     "id":this.cards[i].tarefas.length,
-      //     "name":this.GetData['StudentName'][i1],
-      //     "finalizadoT":finalizadoT,
-      //     "moved":false
+      for(let i1=0;i1<this.GetData['studentQTY'];i1++){
+        
+        let finalizadoT=false
+        if(this.cards.id===0){
+          finalizadoT=true;
+        }
+        this.cards[i].tarefas.push({
+          "id":this.cards[i].tarefas.length,
+          "name":this.GetData[i]['StudentName'][i1],
+          "finalizadoT":finalizadoT,
+          "moved":false
           
-      //   })
-      // }
+        })
+      }
       }
 
     },
