@@ -51,20 +51,20 @@ const app = new Vue({
         "delete": true,
         "edit": false 
       })
-      for(let i1=0;i1<this.GetData['studentQTY'];i1++){
-        forinneriteration++;
-        let finalizadoT=false
-        if(this.cards.id===0){
-          finalizadoT=true;
-        }
-        this.cards[i].tarefas.push({
-          "id":this.cards[i].tarefas.length,
-          "name":this.GetData['StudentName'][i1],
-          "finalizadoT":finalizadoT,
-          "moved":false
+      // for(let i1=0;i1<this.GetData['studentQTY'];i1++){
+      //   forinneriteration++;
+      //   let finalizadoT=false
+      //   if(this.cards.id===0){
+      //     finalizadoT=true;
+      //   }
+      //   this.cards[i].tarefas.push({
+      //     "id":this.cards[i].tarefas.length,
+      //     "name":this.GetData['StudentName'][i1],
+      //     "finalizadoT":finalizadoT,
+      //     "moved":false
           
-        })
-      }
+      //   })
+      // }
       }
 
     },
