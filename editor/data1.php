@@ -2,10 +2,38 @@
  require_once "connection/connection.php";
 
 
+$SendingData=array();
+$agentArray=array(
+   'name'=>'',
+);
+$student_name=array();
 $GetGroupInfo="SELECT `id`,`name`,`year` FROM `groups` ";
+$GetStudentINFO="SELECT `id`,`firsr_name`,`course_id`";
+$getStudents_to_GroupINFO="SELECT `student_id`,`group_id`";
+$GroupIDcheck=0;
+$count1=0;
+$count2=0;
+for($index=0;$index<mysqli_fetch_row($GetGroupInfo);$index++){
+   $count1++;
+   $GroupIDcheck=$GetGroupInfo['id'];
+   for($index1=0;$index1<mysqli_fetch_row($getStudents_to_GroupINFO);$index1++){
+      $count2++;
+     if($GroupIDcheck===$getStudents_to_GroupINFO['student_id']){
+        $student_name[$index1]=$GetStudentINFO['first_name'];
+     }
+  }
 
+$agentArray['name']=$GetGroupInfo['name'];
+$BigBrotherArray=array_merge($agentArray,$student_name);
+$SendingData[$index]=$BigBrotherArray;
+array_splice($BigBrotherArray,0);
+array_splice($student_name,0);
+}
 
+print_r($SendingData);
 
+echo '<br>'. $count1;
+echo '<br>'. $count2;
 
 
 

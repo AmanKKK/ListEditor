@@ -19,10 +19,10 @@ $yearOfCourse=$data['quadroinfo'][0]['year']; //Год курса;
 $idCourse=$data['quadroinfo'][0]['id']; //индекс курса 
 $checkyearOfCourse=$yearOfCourse;
 
-$hello=count($data['cards']);
-$hello1=count($data['cards'][0]['tarefas']);
-echo($hello);
-echo($hello1);
+// $hello=count($data['cards']);
+// $hello1=count($data['cards'][0]['tarefas']);
+// echo($hello);
+// echo($hello1);
 // echo($nameOfCourse);
 // echo($yearOfCourse);
 $groupIDarray=array();
@@ -54,7 +54,7 @@ for($index=0;$index<count($data['cards']);$index++){
   }
   for($index1=0;$index1<count($data['cards'][$index]['tarefas']);$index1++){
     $innerIndex++;
-    echo 'Внутренний индекс:'. ($innerIndex);
+    // echo 'Внутренний индекс:'. ($innerIndex);
     array_splice($studentIDarray,0);
     $studentnames=$data['cards'][$index]['tarefas'][$index1]['name'];
     $studentID=$data['cards'][$index]['tarefas'][$index1]['id'];
@@ -65,8 +65,8 @@ for($index=0;$index<count($data['cards']);$index++){
     for($i1=0;$i1<$qtyOFstudents;$i1++){
       $fetchStudentArray=mysqli_fetch_assoc($resultOFrequestStudent);
       array_push($studentIDarray,$fetchStudentArray['id']);
-      echo '<br>';
-      print_r($studentIDarray[$i1]);
+      // echo '<br>';
+      // print_r($studentIDarray[$i1]);
     }
     if($pass<=1){
     $sendTogroup_id="INSERT INTO `students_to_group`(`group_id`,`student_id`)VALUES('$groupIDarray[$index]','$studentIDarray[$index1]')";
