@@ -58,7 +58,7 @@ for($index=0;$index<count($data['cards']);$index++){
     array_splice($studentIDarray,0);
     $studentnames=$data['cards'][$index]['tarefas'][$index1]['name'];
     $studentID=$data['cards'][$index]['tarefas'][$index1]['id'];
-    $sendstudents="INSERT INTO `students`(`first_name`,`user_id`)VALUES('$studentnames','$yearOfCourse')";
+    $sendstudents="INSERT INTO `students`(`first_name`,`course_year`)VALUES('$studentnames','$yearOfCourse')";
     mysqli_query($connection,$sendstudents);
     $requestStudent="SELECT `id` FROM `students` ";
     $resultOFrequestStudent=mysqli_query($connection,$requestStudent);
