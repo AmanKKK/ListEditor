@@ -1,39 +1,52 @@
 <?php
  require_once "connection/connection.php";
 
+ $commandToGetGroupInfo="SELECT `id`,`year`,`name` FROM `groups`";
+ $sendGroupRequest=mysqli_query($connection,$commandToGetGroupInfo);
+ 
+ 
+ $SendingData=array();
+ $agentArray=array(
+    'name'=>'',
+ );
+ $student_name=array();
+ $GetGroupInfo="SELECT `id`,`name`,`year` FROM `groups` ";
+ $group=mysqli_query($connection,$GetGroupInfo);
+ $GetStudentINFO="SELECT `id`,`first_name`,`course_year` FROM `students`" ;
+ $students=mysqli_query($connection,$GetStudentINFO);
+ $getStudents_to_GroupINFO="SELECT `student_id`,`group_id`FROM `students_to_group`";
+ $student_to_group=mysqli_query($connection,$getStudents_to_GroupINFO);
+ $GroupIDcheck=0;
 
-$SendingData=array();
-$agentArray=array(
-   'name'=>'',
-);
-$student_name=array();
-$GetGroupInfo="SELECT `id`,`name`,`year` FROM `groups` ";
-$GetStudentINFO="SELECT `id`,`firsr_name`,`course_id`";
-$getStudents_to_GroupINFO="SELECT `student_id`,`group_id`";
-$GroupIDcheck=0;
-$count1=0;
-$count2=0;
-for($index=0;$index<mysqli_fetch_row($GetGroupInfo);$index++){
+ for($index=0;$index<mysqli_num_rows($group);$index++){
    $count1++;
-   $GroupIDcheck=$GetGroupInfo['id'];
-   for($index1=0;$index1<mysqli_fetch_row($getStudents_to_GroupINFO);$index1++){
+   $catchGroup=mysqli_fetch_assoc($group);
+   $GroupIDcheck=$catchGroup['id'];
+   for($index1=0;$index1<mysqli_num_rows($student_to_group);$index1++){
       $count2++;
-     if($GroupIDcheck===$getStudents_to_GroupINFO['student_id']){
-        $student_name[$index1]=$GetStudentINFO['first_name'];
+      $catchStudent_to_group=mysqli_fetch_assoc($student_to_group);
+      $StudentIDcheck[$index1]=$catchStudent_to_group['group_id'];
+      $catchStudent=mysqli_fetch_assoc($students);
+     if($GroupIDcheck===$StudentIDcheck[$index1]){
+      echo '<br>'. "Group ID:". $GroupIDcheck;
+      echo '<br>'. "Student ID:".$StudentIDcheck[$index1];
+        $count3++;
+        
+        $student_name[$index1]=$catchStudent['first_name'];
      }
   }
 
-$agentArray['name']=$GetGroupInfo['name'];
+$agentArray['name']=$catchGroup['name'];
 $BigBrotherArray=array_merge($agentArray,$student_name);
 $SendingData[$index]=$BigBrotherArray;
 array_splice($BigBrotherArray,0);
 array_splice($student_name,0);
 }
 
-print_r($SendingData);
+$flow=json_encode($SendingData,JSON_UNESCAPED_UNICODE);
 
-echo '<br>'. $count1;
-echo '<br>'. $count2;
+print_r($flow);
+
 
 
 
