@@ -40,7 +40,7 @@ const app = new Vue({
   methods:{
     
     DOIT(){
-      for(let i=0; i<this.GetData['groupQTY'];i++){
+      for(let i=0; i<this.GetData['name'];i++){
        this.foriteration++;
       this.cards.push({
         "id":this.cards.length,

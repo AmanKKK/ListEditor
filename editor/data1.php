@@ -9,7 +9,9 @@
  $agentArray=array(
     'name'=>'',
  );
- $student_name=array();
+ $student_name=array(
+    "StudentName"=>array(),
+ );
  $GetGroupInfo="SELECT `id`,`name`,`year` FROM `groups` ";
  $group=mysqli_query($connection,$GetGroupInfo);
  $GetStudentINFO="SELECT `id`,`first_name`,`course_year` FROM `students`" ;
@@ -32,7 +34,7 @@
       echo '<br>'. "Student ID:".$StudentIDcheck[$index1];
         $count3++;
         
-        $student_name[$index1]=$catchStudent['first_name'];
+        $student_name['StudentName'][$index1]=$catchStudent['first_name'];
      }
   }
 
