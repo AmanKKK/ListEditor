@@ -41,7 +41,7 @@ const app = new Vue({
     
     DOIT(){
       alert("Let's work!");
-      for(let i=0; i<this.GetData['groupQTY'];i++){
+      for(let i=0; i<this.GetData['groupQTY'][0];i++){
        this.foriteration++;
       this.cards.push({
         "id":this.cards.length,
@@ -52,7 +52,7 @@ const app = new Vue({
         "delete": true,
         "edit": false 
       })
-      for(let i1=0;i1<this.GetData['studentQTY'];i1++){
+      for(let i1=0;i1<this.GetData[i]['amount'][0];i1++){
         
         let finalizadoT=false
         if(this.cards.id===0){
@@ -60,7 +60,7 @@ const app = new Vue({
         }
         this.cards[i].tarefas.push({
           "id":this.cards[i].tarefas.length,
-          "name":this.GetData[i]['StudentName'][i1],
+          "name":this.GetData[i]['first_name'][i1],
           "finalizadoT":finalizadoT,
           "moved":false
           
