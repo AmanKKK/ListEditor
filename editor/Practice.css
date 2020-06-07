@@ -6,8 +6,6 @@
 
  
  .dash{
-  
-   
    width: calc(100% - 0px);
    height: 100%;
    overflow-x: auto;
@@ -26,7 +24,6 @@
    overflow-x: auto;
    overflow-y: auto;
    height: calc(100vh - 0rem);
-   /*  Object */
  }
  
  h1{
@@ -54,7 +51,6 @@
    top: -10px;
    width: calc(100% - 15px);
    left: 10px;
-
  }
  
  button{
@@ -63,7 +59,6 @@
    background: transparent;
    cursor: pointer;
    transition: 0.4s;
-  
  }
  
  button:focus{
@@ -104,9 +99,7 @@
    margin-top: 0px;
    -moz-user-select: none;
    -moz-user-select: text;
-  
    -webkit-user-select: none;
-   
    cursor: pointer;
  }
  
@@ -124,8 +117,7 @@
      display: flex;
      margin: 0px;
      position: absolute;
-     width: 190px;           /* Object 3 */
-     
+     width: 190px;           
  }
  
  .card{
@@ -170,7 +162,7 @@
    max-height: calc(100vh - 8.8rem);
    padding: 10px;
    width: 100%;
-   margin: 10px; /*Object*/
+   margin: 10px; 
  }
  
  ::-webkit-scrollbar {
@@ -179,7 +171,6 @@
  
  ::-webkit-scrollbar-thumb {
      background-color: #7070708f;
-   /*  border-right: 0.6rem solid #020d18;*/  
  }
  
  .moved{
@@ -192,24 +183,12 @@
    padding: 20px;
  }
  
- /*.dash::-webkit-scrollbar {
-     height: 0.8rem;
-     width:1.6rem;
- }
- 
- .dash::-webkit-scrollbar-thumb {
-     background-color: rgba(0,0,0,.40);
-     border: 0.8rem solid rgba(0,0,0,.40);
-     border-top-width: 0;
- }
- */
- 
  .card .title{
      word-break: break-all;
      white-space: normal;
      width: 190px;
  }
- 
+
  .tarefa{
     background: #fff;
     border-bottom: 0.1rem solid #ccc;
@@ -301,9 +280,6 @@
      50%{ opacity: 0.5;}
      100%{ opacity: 1;}
  }
- 
- 
- 
  
  .topd{
    margin: -2% 81% 1%;

@@ -4,18 +4,18 @@ const app = new Vue({
   el: "#app",
   data(){
     return{
-    quadro: {"title": "Введите курс"},
-    cards: [],
-    quadroinfo:[],  
-    newCardName: "",
+    quadro: {"title": "Введите курс"}, // переменная, хранящая название курса
+    cards: [], //  таблицы со студентами
+    quadroinfo:[], // данные о годе и курсе
+    newCardName: "", 
     mover: false,
-    movedTarefa: {},
+    movedTarefa: {}, // свойство для переноса данных с одной таблицы в другую
     movedCard: {},
-    qualTarefaMover: {},
-    idCard: 0,
-    idTarefa: 0,
+    qualTarefaMover: {}, 
+    idCard: 0,  
+    idTarefa: 0, // id объекта в таблице
     minif: false,
-    editQuadroTitle: false,
+    editQuadroTitle: false, // для внесения данных в блок "Введите курс"
     GetData:[],
     }
   },
@@ -27,20 +27,13 @@ const app = new Vue({
       this.DOIT()
     )) 
   },
-  
-
-
-  methods:{
-    
+  methods:{ 
     DOIT(){
-
-      alert("Let's work!");
       for(let i=0; i<this.GetData['groupQTY'];i++){
-       
       this.cards.push({
         "id":this.cards.length,
         "name":this.GetData[i]['name'],
-        "tarefas":[],
+        "tarefas":[], // массив хранящий объекты данной таблицы
         "navaTafera":null,
         "icon": "fas fa-clipboard-list",
         "delete": true,
@@ -61,7 +54,6 @@ const app = new Vue({
         })
       }
       }
-
     },
    
     newCard(){
@@ -69,7 +61,7 @@ const app = new Vue({
       this.cards.push({
         "id": this.cards.length,
         "name": this.newCardName,
-        "tarefas" : [],
+        "tarefas" : [], // массив хранящий объекты данной таблицы
         "novaTarefa": null,
         "icon": "fas fa-clipboard-list",
         "delete": true,
@@ -78,7 +70,7 @@ const app = new Vue({
       this.newCardName = ""
       }
     },
-    newTarefa(card){
+    newTarefa(card){ //создание блока с и/ф студента 
       const id = this.cards.indexOf(card)
       var finalizadoT = false
       if(card.id === 0 ){
@@ -94,12 +86,12 @@ const app = new Vue({
       this.cards[id].novaTarefa = ""
       }
     },
-    deleteTarefa(tarefa, card){
+    deleteTarefa(tarefa, card){ //удаление блока со  студентом
       const idCard = this.cards.indexOf(card)
       const idTarefa = this.cards[idCard].tarefas.indexOf(tarefa)
       this.cards[idCard].tarefas.splice(idTarefa, 1)
     },
-    upTarefa(tarefa, card){
+    upTarefa(tarefa, card){ //поднять блок со студентом в списке на одну еденицу вверх 
       const idCard = this.cards.indexOf(card)
       const idTarefa = this.cards[idCard].tarefas.indexOf(tarefa)
       var anterior = this.cards[idCard].tarefas[idTarefa - 1].name
@@ -116,7 +108,7 @@ const app = new Vue({
       setTimeout(() => this.cards[idCard].tarefas[idTarefa].moved = false , 500);
       setTimeout(() => this.cards[idCard].tarefas[idTarefa - 1].moved = false , 500);
     },
-    downTarefa(tarefa, card){
+    downTarefa(tarefa, card){ //опустить блок студентом в списке на одну еденицу вниз 
       const idCard = this.cards.indexOf(card)
       const idTarefa = this.cards[idCard].tarefas.indexOf(tarefa)
       const anteriorName = this.cards[idCard].tarefas[idTarefa + 1].name
@@ -134,11 +126,11 @@ const app = new Vue({
       setTimeout(() => this.cards[idCard].tarefas[idTarefa].moved = false , 1000);
       setTimeout(() => this.cards[idCard].tarefas[idTarefa + 1].moved = false , 1000);
     },
-    deleteCard(card){
+    deleteCard(card){ 
       const idCard = this.cards.indexOf(card)
       this.cards.splice(idCard, 1)
     },
-    concluido(card, tarefa){
+    concluido(card, tarefa){ // добавление блока со студентом из одной таблицы в другую
       const idCard = this.cards.indexOf(card)
       const idTarefa = this.cards[idCard].tarefas.indexOf(tarefa)
       const tarefaFinalizada = this.cards[idCard].tarefas[idTarefa]
@@ -245,7 +237,7 @@ const app = new Vue({
         },
         body:print,
       })
-      .then(response=>console.log(response));   //добавить 
+      .then(response=>console.log(response));
     },
     
 

@@ -16,7 +16,7 @@ if(isset($data)){
 
 $nameOfCourse=$data['quadro']['title']; //Списки подгрупп такого та курса;
 $yearOfCourse=$data['quadroinfo'][0]['year']; //Год курса;
-$idCourse=$data['quadroinfo'][0]['id']; 
+$idCourse=$data['quadroinfo'][0]['id']; //индекс курса 
 $checkyearOfCourse=$yearOfCourse;
 
 
@@ -38,7 +38,7 @@ for($index=0;$index<count($data['cards']);$index++){
   $qtyOFstudents=$qtyOFstudents+count($data['cards'][$index]['tarefas']);
   array_splice($groupIDarray,0);
   $groupID=$data['cards'][$index]['id'];
-  $groupname=$data['cards'][$index]['name'];
+  $groupname=$data['cards'][$index]['name']; //название группы;
   $sendtogroup="INSERT INTO `groups`(`name`,`year`,`mailing_hidden`)VALUES('$groupname','$yearOfCourse','$groupID')";
   mysqli_query($connection,$sendtogroup);
   $requestGroup="SELECT `id` FROM `groups` ";

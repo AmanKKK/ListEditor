@@ -226,9 +226,7 @@ a.arrow{text-decoration: none;}
                 <p class="image-text text-spec">Направление &laquo;Прикладная математика и информатика&raquo;</p>
                 <p class="image-text text-kaf">Кафедра программного обеспечения систем радиоэлектронной аппаратуры<br>
                 при АО &laquo;Концерн &laquo;Вега&raquo;</p>
-            </div>
-            
-            
+            </div>  
         </td> 
     </tr>
         <div class="airplane">
@@ -331,7 +329,7 @@ a.arrow{text-decoration: none;}
         <i class="fas fa-chevron-up"></i>
       </button>
       <button class="move" @click="move(card,tarefa)">
-        <i class="fas fa-mouse-pointer"></i>
+        <i class="fas fa-mouse-pointer"></i> <!--иконка переноса-->
       </button>
       <button v-if="card.tarefas.indexOf(tarefa) < card.tarefas.length - 1"
               @click="downTarefa(tarefa, card)"
@@ -348,7 +346,7 @@ a.arrow{text-decoration: none;}
            placeholder="Введите и/ф студента" maxLength="100"
            name="studentname">
     </form>
-  </div> 
+  </div>
   <div class="card">
     <h1>Создание группы</h1>
     <form id="send" onkeydown="return event.key != 'Enter'" method="POST" action="data.php">
@@ -356,7 +354,7 @@ a.arrow{text-decoration: none;}
            v-on:keyup.enter="newCard"
            placeholder="Введите название группы" maxLength="30"
            name="group"
-           > 
+           >    
     </form>
   </div> 
   </div>
