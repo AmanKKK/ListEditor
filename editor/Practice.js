@@ -17,8 +17,7 @@ const app = new Vue({
     minif: false,
     editQuadroTitle: false,
     GetData:[],
-    foriteration:0,
-    forinneriteration:0,
+    convertData:'',
     }
   },
   mounted(){
@@ -26,7 +25,7 @@ const app = new Vue({
     axios
     .get('data1.php')
     .then(response=>(
-      this.GetData=response.data,
+      this.GetData=JSON.stringify(response.data),
       this.DOIT()
       
     ))
@@ -40,9 +39,10 @@ const app = new Vue({
   methods:{
     
     DOIT(){
+
       alert("Let's work!");
-      for(let i=0; i<this.GetData['groupQTY'][0];i++){
-       this.foriteration++;
+      for(let i=0; i<this.GetData['groupQTY'];i++){
+       
       this.cards.push({
         "id":this.cards.length,
         "name":this.GetData[i]['name'],
@@ -52,7 +52,7 @@ const app = new Vue({
         "delete": true,
         "edit": false 
       })
-      for(let i1=0;i1<this.GetData[i]['amount'][0];i1++){
+      for(let i1=0;i1<this.GetData[i]['amount'];i1++){
         
         let finalizadoT=false
         if(this.cards.id===0){
@@ -60,7 +60,7 @@ const app = new Vue({
         }
         this.cards[i].tarefas.push({
           "id":this.cards[i].tarefas.length,
-          "name":this.GetData[i]['first_name'][i1],
+          "name":this.GetData[i]['students'][i1],
           "finalizadoT":finalizadoT,
           "moved":false
           
@@ -71,8 +71,6 @@ const app = new Vue({
     },
    
     newCard(){
-      alert(this.foriteration);
-      alert(this.forinneriteration);
       if(!this.newCardName == ''){
       this.cards.push({
         "id": this.cards.length,
