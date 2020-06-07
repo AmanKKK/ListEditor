@@ -230,41 +230,28 @@ a.arrow{text-decoration: none;}
             
             
         </td> 
-        <!--////////////////////ПРОБЛЕМНЫЙ УЧАСТОК///////////////////////-->
-       
-        <!--//////////////////////КОНЕЦ ПРОБЛЕМНОГО УЧАТСКА//////////////////-->
-          <!-- <td class="body-table-td" style="max-width: 16px; width: 16px;background-color: #c0c0c0;"></td> -->
     </tr>
         <div class="airplane">
             <div class="UniName">
                 <p>МИРЭА - Российский технологический </p>
                 <p>университет</p>
                 <p>Институт Кибернетики</p>
-                
             </div>
             <img src="images/h-rE.png" width="531px" height="234px">
-
         </div>
         <td colspan="2" class="body-table-td" valign=middle style="height: 70px; background-color: #ffffff;">
             <div class="menu">
                 <a href="/about.php">О кафедре</a> | <a href="/appmath.php">О прикладной математике</a> | <a href="/disc.php">Дисциплины</a> | <a href="/vega.php">О Концерне</a>
             </div>
-             <!--  <td class="body-table-td" style="max-width: 16px; width: 16px;background-color: #c0c0c0;"></td> -->
          </td> 
     </tr>
     <tr class="body-table-tr" > 
         <td colspan="2" class="body-table-td" valign=middle style="height:35px; background-color: #ffffff;"> 
-        
-        
-        
-        
-           </td> <!-- <td class="body-table-td" style="max-width: 16px; width: 16px;background-color: #c0c0c0;"></td> -->
+           </td> 
         </td> 
     </tr>
     <tr class="body-table-tr"> 
-        <td colspan="2" valign=top class="body-table-td-content">
-
-  <!--         LIST'S START           --> 
+        <td colspan="2" valign=top class="body-table-td-content"> 
   <div class="groups">
   <div id="app">
     <button @click="fetchData"
@@ -276,10 +263,7 @@ a.arrow{text-decoration: none;}
       >
         Сохранить
         <i class="fas fa-save"></i>   
-    </button>
-    
-    
-    
+    </button>   
   <div class="dash" v-bind:class="{mini: !minif}">
   <form method ="POST" action="data.php"  onkeydown="return event.key != 'Enter'" id="send" >
     <p class="quadro_title" @click="editQuadroName" 
@@ -295,17 +279,8 @@ a.arrow{text-decoration: none;}
            type="text"
            name="course">
            </form>
-           <!-- <div v-for="info in quadroinfo">
-               <p>{{info.name}}</p> 
-               <p>{{info.year}}</p>
-           </div> -->
     <div class="card" 
        v-for="card in cards">
-       <!--Отвечает за перемещение элементов из стоблцов-->
-       <!-- <p>{{card.name}}</p>
-       <p>{{card.id}}</p> -->
-       <!-- <p>{{card.tarefas}}</p> -->
-       <!-- <p>{{cards}}</p> -->
     <div v-if="mover" class="move_p">
       <div @click="movendo(card)"
            class="moover"
@@ -317,7 +292,6 @@ a.arrow{text-decoration: none;}
         <p>Текущая таблица</p>
       </div>
     </div>
-    <!--END-->
     <button v-if="card.delete" 
             @click="deleteCard(card)"
             class="delete topd">
@@ -338,7 +312,6 @@ a.arrow{text-decoration: none;}
            class="edit" type="text"
            v-model="card.name"
            maxlength="45">
-    <!--Отвечает за содержание колонки-->
     <div class="list">
      <p v-if="card.tarefas.length == 0" id="ghost">список студентов</p>
       <draggable
@@ -350,7 +323,7 @@ a.arrow{text-decoration: none;}
       <p>{{ tarefa.name }}</p>
       <button @click="deleteTarefa(tarefa, card)"
               class="delete">
-        <i class="fas fa-trash"></i> <!--Иконка удаления -->
+        <i class="fas fa-trash"></i>
       </button>
       <button v-if="card.tarefas.indexOf(tarefa) > 0"
               @click="upTarefa(tarefa, card)"
@@ -358,7 +331,7 @@ a.arrow{text-decoration: none;}
         <i class="fas fa-chevron-up"></i>
       </button>
       <button class="move" @click="move(card,tarefa)">
-        <i class="fas fa-mouse-pointer"></i> <!--иконка переноса-->
+        <i class="fas fa-mouse-pointer"></i>
       </button>
       <button v-if="card.tarefas.indexOf(tarefa) < card.tarefas.length - 1"
               @click="downTarefa(tarefa, card)"
@@ -367,7 +340,6 @@ a.arrow{text-decoration: none;}
       </div>
         </draggable>
        </div>
-       <!-- <p>{{cards[0]['tarefas'][0]['name']}}</p> -->
       </div>
     </div>
     <form  onkeydown="return event.key != 'Enter'" id="send" method="POST" action="data.php">
@@ -376,9 +348,7 @@ a.arrow{text-decoration: none;}
            placeholder="Введите и/ф студента" maxLength="100"
            name="studentname">
     </form>
-  </div>
-  <!-- отвечает за создание новой карты-->
- 
+  </div> 
   <div class="card">
     <h1>Создание группы</h1>
     <form id="send" onkeydown="return event.key != 'Enter'" method="POST" action="data.php">
@@ -386,31 +356,11 @@ a.arrow{text-decoration: none;}
            v-on:keyup.enter="newCard"
            placeholder="Введите название группы" maxLength="30"
            name="group"
-           >
-           
-         
+           > 
     </form>
-  </div>
-  
-  <!-- <div v-for="card in cards" style ="border:2px solid black;">
-  <p>students info</p>
-    <div v-for="(tarefa,index) in card.tarefas">
-        <p>INDEX:{{index}}<p>
-        <p>{{tarefa.name}}</p>
-        <p>{{tarefa.id}}</p>
-    </div>
- 
-
-  </div> -->
-  <!--           LIST'S END         -->  
- 
+  </div> 
   </div>
   </div>
-
-
-  
-
-  <!-- <td class="body-table-td" style="max-width: 16px; width: 16px;background-color: #c0c0c0;"></td> -->
 </tr>
 <tr class="body-table-tr"> 
     <td colspan="4" class="body-table-td"  style="font-size: 14px; width: 1062px !important; height: 26px;">
@@ -433,7 +383,6 @@ a.arrow{text-decoration: none;}
     </td>
 </tr>
 <tr class="body-table-tr">
-      <!--  <td class="body-table-td" style="max-width: 16px; width: 16px;background-color: #c0c0c0;"></td> -->
     <td colspan="2" class="body-table-td-content">
         <table align="center">
             <tr class="body-table-tr"> 
@@ -476,15 +425,11 @@ a.arrow{text-decoration: none;}
  
 </tr>
 </table>
-
   <script src="axios.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.10.2/Sortable.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Vue.Draggable/15.0.0/vuedraggable.min.js"></script>
   <script src="vue.min.js"></script>
   <script src="Practice.js"></script>  
-  
-  
-
  </body>
 
 </html>

@@ -17,21 +17,15 @@ const app = new Vue({
     minif: false,
     editQuadroTitle: false,
     GetData:[],
-    convertData:'',
     }
   },
   mounted(){
-    // this.montar()
     axios
     .get('data1.php')
     .then(response=>(
       this.GetData=response.data,
       this.DOIT()
-      
-    ))
-    .then(alert("Data is cached!"));
-    
-   
+    )) 
   },
   
 
@@ -242,7 +236,6 @@ const app = new Vue({
     },
     
     fetchData(){
-     // alert('Данные отправленны');
       let print=JSON.stringify(app.$data);
       fetch('data.php',{
         method:'POST',
@@ -252,7 +245,7 @@ const app = new Vue({
         },
         body:print,
       })
-      .then(response=>console.log(response));  
+      .then(response=>console.log(response));   //добавить 
     },
     
 
