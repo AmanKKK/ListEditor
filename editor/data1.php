@@ -1,70 +1,50 @@
 <?php
  require_once "connection/connection.php";
 
- $commandToGetGroupInfo="SELECT `id`,`year`,`name` FROM `groups`";
- $sendGroupRequest=mysqli_query($connection,$commandToGetGroupInfo);
+ $result = array();
+	
+ // Ищем все группы
+ $requestTogroup="SELECT `id`,`name`FROM `groups`";
+ $groups_query = mysqli_query($connection,$requestTogroup);
  
- 
- $SendingData=array();
- $agentArray=array(
-    'name'=>'',
- );
- $student_name=array(
-    "StudentName"=>array(),
- );
- $GetGroupInfo="SELECT `id`,`name`,`year` FROM `groups` ";
- $group=mysqli_query($connection,$GetGroupInfo);
- $GetStudentINFO="SELECT `id`,`first_name`,`course_year` FROM `students`" ;
- $students=mysqli_query($connection,$GetStudentINFO);
- $getStudents_to_GroupINFO="SELECT `student_id`,`group_id`FROM `students_to_group`";
- $student_to_group=mysqli_query($connection,$getStudents_to_GroupINFO);
- $GroupIDcheck=0;
- $count1=0;
- $count2=0;
- $count3=0;
- 
- 
- 
-
- for($index=0;$index<mysqli_num_rows($group);$index++){
-    $count1++;
-    $catchGroup=mysqli_fetch_assoc($group);
-    $GroupIDcheck=$catchGroup['id'];
-    for($index1=0;$index1<mysqli_num_rows($student_to_group);$index1++){
-       $count2++;
-       $catchStudent_to_group=mysqli_fetch_assoc($student_to_group);
-       $StudentIDcheck[$index1]=$catchStudent_to_group['group_id'];
-       $catchStudent=mysqli_fetch_assoc($students);
-      if($GroupIDcheck===$StudentIDcheck[$index1]){
-         $count3++;
-         $student_name['StudentName'][$index1]=$catchStudent['first_name'];
-      }
-   }
- 
- $agentArray['name']=$catchGroup['name'];
- $BigBrotherArray=array_merge($agentArray,$student_name);
- $SendingData[$index]=$BigBrotherArray;
- array_splice($BigBrotherArray,0);
- array_splice($student_name,0);
+ // цикл по всем группам
+ while($group = mysqli_fetch_assoc($groups_query)){
+    $group_id = $group["id"];
+    $group_name = $group["name"];
+    
+    // Группа: айди, имя, список студентов
+    $result_group = array(
+       "id" => $group_id,
+       "name" => $group_name,
+       "students" => array()
+    );
+    
+    // Ищем студентов этой группы
+    // пояснения:
+    // * Выбираем всё из таблицы students
+    // * Объединяем с таблицей students_to_group, чтобы получить группу, к которой принадлежит студент
+    // * Объединяем по айдишникам - id в student соответствует student_id в students_to_group
+    // * Фильтруем по айдишнику группы
+    $requestToStudents="SELECT * FROM `students` 
+                        JOIN students_to_group
+                        ON students.id = students_to_group.student_id
+                        WHERE students_to_group.group_id=$group_id ";
+    $students_query = mysqli_query($connection,$requestToStudents);
+    
+    // Цикл по всем студентам группы
+    while($student = mysqli_fetch_assoc($students_query)){
+       // Добавляем в группу
+       array_push($result_group["students"], $student);
+    }
+    
+    // Добавляем группу в вывод
+    array_push($result, $result_group);
  }
  
+//  echo json_encode($result,JSON_UNESCAPED_UNICODE);
+ $SendData=json_encode($result,JSON_UNESCAPED_UNICODE);
  
- 
- $amountofgroups=array(
-    "groupQTY"=>array()
- );
- $amountofstudents=array(
-    "studentQTY"=>array()
- );
- 
- array_push($amountofgroups['groupQTY'],$count1);
- array_push($amountofstudents['studentQTY'],$count3);
- 
- $SENDdata=$SendingData+$amountofgroups+$amountofstudents;
- 
- $flow=json_encode($SENDdata,JSON_UNESCAPED_UNICODE);
- 
- print_r($flow);
+ print_r($SendData);
 
 
 
