@@ -15,9 +15,9 @@ if(isset($data)){
 
 
 $nameOfCourse=$data['quadro']['title']; //Списки подгрупп такого та курса;
-$yearOfCourse=$data['quadroinfo'][0]['year']; //Год курса;
-$idCourse=$data['quadroinfo'][0]['id']; //индекс курса 
-$checkyearOfCourse=$yearOfCourse;
+// $yearOfCourse=$data['quadroinfo'][0]['year']; //Год курса;
+// $idCourse=$data['quadroinfo'][0]['id']; //индекс курса 
+$yearOfCourse=1;
 
 
 $groupIDarray=array();
@@ -27,10 +27,9 @@ $qtyOFstudents=0;
 $pass=0;
 $innerIndex=-1;
 
-if($checkyearOfCourse===$yearOfCourse){
   $requestFORdelete="DELETE FROM `groups` WHERE `year`=$yearOfCourse";
   mysqli_query($connection,$requestFORdelete);
-}
+
 
 
 for($index=0;$index<count($data['cards']);$index++){

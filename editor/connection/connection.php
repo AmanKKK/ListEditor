@@ -4,7 +4,7 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 require_once "config.php";
 
 $connection=mysqli_connect(
-   $congig["server"],
+   $config["server"],
    $config["username"],
    $config["password"],
    $config["namedb"]

@@ -263,20 +263,6 @@ a.arrow{text-decoration: none;}
         <i class="fas fa-save"></i>   
     </button>   
   <div class="dash" v-bind:class="{mini: !minif}">
-  <form method ="POST" action="data.php"  onkeydown="return event.key != 'Enter'" id="send" >
-    <p class="quadro_title" @click="editQuadroName" 
-     v-if="!editQuadroTitle">{{quadro.title}}
-      <span v-if="quadro.title == ''">Списки подгрупп</span>
-    </p>    
-    <input  class="title_q"
-           @blur="cancelQuadroTitle"
-           v-on:keyup.enter="cancelQuadroTitle"
-           v-else=""
-           type="text"
-           v-model="quadro.title"
-           type="text"
-           name="course">
-           </form>
     <div class="card" 
        v-for="card in cards">
     <div v-if="mover" class="move_p">
