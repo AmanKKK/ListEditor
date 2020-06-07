@@ -25,7 +25,7 @@ const app = new Vue({
     axios
     .get('data1.php')
     .then(response=>(
-      this.GetData=JSON.stringify(response.data),
+      this.GetData=response.data,
       this.DOIT()
       
     ))
@@ -60,7 +60,7 @@ const app = new Vue({
         }
         this.cards[i].tarefas.push({
           "id":this.cards[i].tarefas.length,
-          "name":this.GetData[i]['students'][i1],
+          "name":this.GetData[i]['students'][i1]['first_name'],
           "finalizadoT":finalizadoT,
           "moved":false
           
